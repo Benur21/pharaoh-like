@@ -1,11 +1,11 @@
 extends CharacterBody2D
- 
+
 @onready var anim = $AnimationPlayer
 
 var facing_dir = "down" # default
 
 # speed in pixels/sec
-var speed = 250 	
+var speed = 250
 
 func _physics_process(_delta):
 	# setup direction of movement
