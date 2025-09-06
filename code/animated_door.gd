@@ -40,10 +40,10 @@ func _ready():
 
 func _on_body_entered(body):
 	if visible:
-		print("Entrou:", body.name)
+		print("Entrou na porta: ", body.name)
 		animation_player.play("opening")
 
 func _on_body_exited(body):
 	if visible:
-		print("Saiu:", body.name)
+		print("Saiu da porta: ", body.name)
 		animation_player.play("closing")

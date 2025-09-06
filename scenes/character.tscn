@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bedx3grkateng"]
+[gd_scene load_steps=16 format=3 uid="uid://bedx3grkateng"]
 
 [ext_resource type="Texture2D" uid="uid://c8r38c1dfwsxb" path="res://assets/The Fan-tasy Tileset (Free)/Art/Characters/Main Character/Character_Idle.png" id="1_agfs1"]
 [ext_resource type="Script" uid="uid://cuty8fqq67wrv" path="res://code/character.gd" id="1_lrhn5"]
 [ext_resource type="Texture2D" uid="uid://m6nj6ctroui4" path="res://assets/The Fan-tasy Tileset (Free)/Art/Characters/Main Character/Character_Walk.png" id="2_rkhd4"]
+[ext_resource type="Texture2D" uid="uid://cmfo7cr3jqwhc" path="res://assets/wood_log.png" id="4_my7n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(11, 33)
@@ -431,3 +432,23 @@ vframes = 4
 libraries = {
 &"": SubResource("AnimationLibrary_my7n2")
 }
+
+[node name="Wood" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(0, -32)
+scale = Vector2(0.0214844, 0.0214844)
+texture = ExtResource("4_my7n2")
+
+[node name="Wood_count" type="RichTextLabel" parent="."]
+z_index = 4
+texture_filter = 1
+offset_left = -26.0
+offset_top = -45.0
+offset_right = 26.0
+offset_bottom = -19.0
+theme_override_font_sizes/normal_font_size = 0
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

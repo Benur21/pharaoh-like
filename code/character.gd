@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimationPlayer
+@onready var wood = $Wood
+@onready var wood_count = $Wood_count
+@export var contains := {"wood": 0, "gold": 0}
 
 var facing_dir = "down" # default
 
 # speed in pixels/sec
 var speed = 250
 
-func _physics_process(_delta):
+func move():
 	# setup direction of movement
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
@@ -40,3 +43,13 @@ func _physics_process(_delta):
 	# setup the actual movement
 	velocity = (direction * speed)
 	move_and_slide()
+
+func _physics_process(_delta):
+	move()
+	
+	if (contains.wood && contains.wood > 0):
+		wood.visible = true
+		wood_count.text = str(contains.wood)
+	else:
+		wood.visible = false
+		wood_count.text = ""
