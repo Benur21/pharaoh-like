@@ -564,6 +564,7 @@ sources/1 = SubResource("TileSetAtlasSource_jyhfs")
 pattern_0 = SubResource("TileMapPattern_tefeu")
 
 [node name="World" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_o6xl0")
 
 [node name="Grass" type="TileMapLayer" parent="."]
