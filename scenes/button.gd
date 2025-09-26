@@ -8,4 +8,6 @@ func _pressed() -> void:
 		var instance = house_building.instantiate()
 		instance.type = type
 		self.get_parent().add_child(instance)
-		instance.selected = true
+	else:
+		var instance =  get_tree().root.get_node("World/house_building")
+		instance.type = type

@@ -1,8 +1,10 @@
 extends Node2D
 
-@export var type = "house1"
-@export var selected = false
-
+@export var type = "house1":
+	set(value):
+		type = value
+		update_visuals()
+	
 # GPT "Obter size Node2D"
 func get_total_bounds() -> Rect2:
 	var rect := Rect2()
@@ -40,6 +42,9 @@ func round_to_nearest_multiple(x: float, n: float) -> float:
 	return int(roundf(x / n )) * n
 
 func _ready() -> void:
+	update_visuals()
+
+func update_visuals() -> void:
 	$background1.enabled = false
 	$house1.enabled = false
 	$background2.enabled = false
@@ -50,16 +55,18 @@ func _ready() -> void:
 	elif type == "house2":
 		$background2.enabled = true
 		$house2.enabled = true
-		
+
 func _physics_process(delta: float) -> void:
 	const tile_size := 16*2.5;
-	self.position.x = round_to_nearest_multiple( get_global_mouse_position().x \
-		- get_total_bounds().size.x/2, tile_size )
-	self.position.y = round_to_nearest_multiple( get_global_mouse_position().y \
-		- get_total_bounds().size.y/2, tile_size )
+	var total_bounds_size = get_total_bounds().size
+	var mouse_position = get_global_mouse_position()
+	self.position.x = round_to_nearest_multiple( mouse_position.x \
+		- total_bounds_size.x/2, tile_size )
+	self.position.y = round_to_nearest_multiple( mouse_position.y \
+		- total_bounds_size.y/2, tile_size )
+	print(total_bounds_size)
 
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("click_right"):
-		selected = false
 		queue_free() # Remove o node da tree
 		
 		
