@@ -1,0 +1,64 @@
+name: action-to-publish-app
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-the-game-online:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          echo "I am in ${{ github.workspace }}."
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          echo "Actual things now."
+          echo "Cloning repo:"
+          git clone https://Benur21:${{ secrets.GITHUB_TOKEN }}@github.com/Benur21/pharaoh-like.git
+          echo "Entering the repo folder:"
+          cd pharaoh-like/
+          echo "Current path:"
+          pwd
+          echo "Current files:"
+          ls -l -a
+          echo "Download godot:"
+          wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          unzip Godot_v4.4.1-stable_linux.x86_64.zip -d godot
+          echo "Build the project:"
+          mkdir -p build
+          ./godot/Godot_v4.4.1-stable_linux.x86_64 --headless --export-release "Web" ./build/index.html
+          echo "Current branch:"
+          git branch
+          echo "Checkout branch:"
+          git checkout gh-pages
+          echo "Current branch:"
+          git branch
+          echo "Current files:"
+          ls -l -a
+          echo "Removing old files:"
+          shopt -s extglob
+          rm -f -r !(build)
+          ls -l -a
+          echo "Moving new files:"
+          mv build/* .
+          ls -l -a
+          echo "Removing empty:"
+          rm -r build
+          ls -l -a
+          echo "Configurating git:"
+          git config user.name Benur21
+          git config user.email Benur21@users.noreply.github.com
+          echo "Git status:"
+          git status
+          echo "Git add .:"
+          git add .
+          echo "Commit:"
+          git commit -m "deploy: ${{ github.sha }}" --allow-empty
+          echo "Git status:"
+          git status
+          echo "Git log:"
+          git log -3
+          echo "Push:"
+          git push
+          echo "🍏 This job's status is ${{ job.status }}."
