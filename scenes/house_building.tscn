@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dx10l4sk1pj5d"]
+[gd_scene load_steps=15 format=4 uid="uid://dx10l4sk1pj5d"]
 
 [ext_resource type="Texture2D" uid="uid://dr1i0sh2jjhha" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/Atlas/Buildings.png" id="1_5uwjm"]
 [ext_resource type="Script" uid="uid://bpd5ma2vgql6a" path="res://scenes/house_building.gd" id="1_r6ip6"]
@@ -772,8 +772,16 @@ texture = ExtResource("2_c43js")
 sources/0 = SubResource("TileSetAtlasSource_3qqmq")
 sources/1 = SubResource("TileSetAtlasSource_raapu")
 
+[sub_resource type="GDScript" id="GDScript_r6ip6"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6ip6"]
+size = Vector2(430, 307)
+
 [node name="house_building" type="Node2D"]
 modulate = Color(1, 1, 1, 0.501961)
+z_index = 3
 texture_filter = 1
 script = ExtResource("1_r6ip6")
 
@@ -816,3 +824,12 @@ tile_set = SubResource("TileSet_ur8p2")
 scale = Vector2(2.5, 2.5)
 tile_map_data = PackedByteArray("AAAAAAAAAAABABgAAAAAAAEAAAABABkAAAAAAAIAAAABABoAAAAAAAMAAAABABsAAAAAAAQAAAABABwAAAAAAAUAAAABAB0AAAAAAAYAAAABAB4AAAAAAAcAAAABAB8AAAABAAAAAAACABgAAAABAAEAAAACABkAAAABAAIAAAACABoAAAABAAMAAAACABsAAAABAAQAAAACABwAAAABAAUAAAACAB0AAAABAAYAAAACAB4AAAABAAcAAAACAB8AAAACAAAAAAADABgAAAACAAEAAAADABkAAAACAAIAAAADABoAAAACAAMAAAADABsAAAACAAQAAAADABwAAAACAAUAAAADAB0AAAACAAYAAAADAB4AAAACAAcAAAADAB8AAAADAAAAAAAEABgAAAADAAEAAAAEABkAAAADAAIAAAAEABoAAAADAAMAAAAEABsAAAADAAQAAAAEABwAAAADAAUAAAAEAB0AAAADAAYAAAAEAB4AAAADAAcAAAAEAB8AAAAEAAAAAAAFABgAAAAEAAEAAAAFABkAAAAEAAIAAAAFABoAAAAEAAMAAAAFABsAAAAEAAQAAAAFABwAAAAEAAUAAAAFAB0AAAAEAAYAAAAFAB4AAAAEAAcAAAAFAB8AAAAFAAAAAAAGABgAAAAFAAEAAAAGABkAAAAFAAIAAAAGABoAAAAFAAMAAAAGABsAAAAFAAQAAAAGABwAAAAFAAUAAAAGAB0AAAAFAAYAAAAGAB4AAAAFAAcAAAAGAB8AAAAGAAAAAAAHABgAAAAGAAEAAAAHABkAAAAGAAIAAAAHABoAAAAGAAMAAAAHABsAAAAGAAQAAAAHABwAAAAGAAUAAAAHAB0AAAAGAAYAAAAHAB4AAAAGAAcAAAAHAB8AAAAHAAAAAAAIABgAAAAHAAEAAAAIABkAAAAHAAIAAAAIABoAAAAHAAMAAAAIABsAAAAHAAQAAAAIABwAAAAHAAUAAAAIAB0AAAAHAAYAAAAIAB4AAAAHAAcAAAAIAB8AAAA=")
 tile_set = SubResource("TileSet_tgv55")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_r6ip6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(219, 157.5)
+shape = SubResource("RectangleShape2D_r6ip6")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

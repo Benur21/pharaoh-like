@@ -46,5 +46,3 @@ func _physics_process(_delta):
 			
 			btn.scale.x = 0.5
 			btn.scale.y = 0.5
-
-			

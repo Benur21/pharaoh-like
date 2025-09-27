@@ -4,6 +4,8 @@ extends Node2D
 	set(value):
 		type = value
 		update_visuals()
+
+var house = preload("res://scenes/house.tscn")
 	
 # GPT "Obter size Node2D"
 func get_total_bounds() -> Rect2:
@@ -78,5 +80,14 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("click_right"):
 		queue_free() # Remove o node da tree
-		
-		
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#if not $Area2D.get_overlapping_areas().has($House):
+			#print("Está em colisão")
+		# Colocar uma nova casa
+		var instance = house.instantiate()
+		instance.type = type
+		instance.position = self.position
+		instance.scale = Vector2(2.5, 2.5)
+		self.get_parent().add_child(instance)
