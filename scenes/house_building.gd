@@ -49,22 +49,32 @@ func update_visuals() -> void:
 	$house1.enabled = false
 	$background2.enabled = false
 	$house2.enabled = false
+	$background3.enabled = false
+	$house3.enabled = false
+	$background4.enabled = false
+	$house4.enabled = false
 	if type == "house1":
 		$background1.enabled = true
 		$house1.enabled = true
 	elif type == "house2":
 		$background2.enabled = true
 		$house2.enabled = true
+	elif type == "house3":
+		$background3.enabled = true
+		$house3.enabled = true
+	elif type == "house4":
+		$background4.enabled = true
+		$house4.enabled = true
 
 func _physics_process(delta: float) -> void:
 	const tile_size := 16*2.5;
 	var total_bounds_size = get_total_bounds().size
 	var mouse_position = get_global_mouse_position()
+	
 	self.position.x = round_to_nearest_multiple( mouse_position.x \
 		- total_bounds_size.x/2, tile_size )
 	self.position.y = round_to_nearest_multiple( mouse_position.y \
 		- total_bounds_size.y/2, tile_size )
-	print(total_bounds_size)
 
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("click_right"):
 		queue_free() # Remove o node da tree
