@@ -23,12 +23,14 @@ jobs:
           echo "Current files:"
           ls -l -a
           echo "Download godot:"
-          wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip --quiet
           unzip Godot_v4.4.1-stable_linux.x86_64.zip -d godot
           echo "Download export templates:"
-          wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+          wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz --quiet
+          echo "Install export templates:"
           mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable/
           unzip Godot_v4.4.1-stable_export_templates.tpz -d ~/.local/share/godot/export_templates/4.4.1.stable/
+          mv ~/.local/share/godot/export_templates/4.4.1.stable/templates/* ~/.local/share/godot/export_templates/4.4.1.stable/
           echo "Build the project:"
           mkdir -p build
           ./godot/Godot_v4.4.1-stable_linux.x86_64 --headless --export-release "Web" ./build/index.html
