@@ -255,16 +255,16 @@ texture = ExtResource("1_d7po0")
 sources/0 = SubResource("TileSetAtlasSource_qtlar")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtlar"]
-size = Vector2(87, 90)
+size = Vector2(87, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rk7hg"]
-size = Vector2(156, 111)
+size = Vector2(155, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se78b"]
-size = Vector2(175, 127)
+size = Vector2(174, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgk5"]
-size = Vector2(128, 128)
+size = Vector2(126, 126)
 
 [node name="House" type="Area2D" groups=["Built Houses"]]
 script = ExtResource("1_qtlar")
@@ -275,7 +275,7 @@ tile_set = SubResource("TileSet_rk7hg")
 
 [node name="collision1" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(56.5, 50)
+position = Vector2(56.5, 50.5)
 shape = SubResource("RectangleShape2D_qtlar")
 
 [node name="house2" type="TileMapLayer" parent="."]
@@ -284,7 +284,7 @@ tile_set = SubResource("TileSet_rk7hg")
 
 [node name="collision2" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(78, 55.5)
+position = Vector2(78.5, 56)
 shape = SubResource("RectangleShape2D_rk7hg")
 
 [node name="house3" type="TileMapLayer" parent="."]
@@ -293,7 +293,7 @@ tile_set = SubResource("TileSet_rk7hg")
 
 [node name="collision3" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(87.5, 63.5)
+position = Vector2(88, 63.5)
 shape = SubResource("RectangleShape2D_se78b")
 
 [node name="house4" type="TileMapLayer" parent="."]
