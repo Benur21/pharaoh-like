@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d2snp824xtfa5" path="res://scenes/menu.tscn" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://ce1wl7bif7y4k" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_1.png" id="8_choun"]
 [ext_resource type="AudioStream" uid="uid://yk6p5ittrin0" path="res://assets/2016_Clement_Panchout_Life_is_full_of_Joy.ogg" id="8_tipki"]
-[ext_resource type="Script" uid="uid://ce3j2sdm6obo8" path="res://scenes/button.gd" id="9_eb6dy"]
+[ext_resource type="Script" uid="uid://ce3j2sdm6obo8" path="res://code/button.gd" id="9_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bw5hxg28yb14f" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_2.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://drxpi8hshlih1" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_3.png" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://b6vgxge7gd1h5" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_4_Purple.png" id="12_a8y0u"]

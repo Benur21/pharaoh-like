@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dx10l4sk1pj5d"]
 
 [ext_resource type="Texture2D" uid="uid://dr1i0sh2jjhha" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/Atlas/Buildings.png" id="1_5uwjm"]
-[ext_resource type="Script" uid="uid://bpd5ma2vgql6a" path="res://scenes/house_building.gd" id="1_r6ip6"]
+[ext_resource type="Script" uid="uid://bpd5ma2vgql6a" path="res://code/house_building.gd" id="1_r6ip6"]
 [ext_resource type="Texture2D" uid="uid://bugyhhkm1gnlb" path="res://assets/house_building_bg.png" id="2_c43js"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c43js"]
@@ -806,7 +806,6 @@ tile_set = SubResource("TileSet_r6ip6")
 [node name="collision1" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(140, 119.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_iysms")
 
 [node name="house2" type="Node2D" parent="."]
@@ -823,7 +822,6 @@ tile_set = SubResource("TileSet_tgv55")
 
 [node name="collision2" type="CollisionShape2D" parent="."]
 position = Vector2(200, 139.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qix4p")
 
 [node name="house3" type="Node2D" parent="."]
@@ -842,7 +840,6 @@ tile_set = SubResource("TileSet_tgv55")
 [node name="collision3" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(220, 160.312)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r6ip6")
 
 [node name="house4" type="Node2D" parent="."]
@@ -861,7 +858,6 @@ tile_set = SubResource("TileSet_tgv55")
 [node name="collision4" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(160, 160)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ur8p2")
 
 [connection signal="input_event" from="." to="." method="_on_area_2d_input_event"]
