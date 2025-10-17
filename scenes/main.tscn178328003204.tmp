@@ -609,10 +609,10 @@ scale = Vector2(2.5, 2.5)
 [node name="Camera" parent="." instance=ExtResource("6_a8y0u")]
 script = ExtResource("7_jkv2x")
 
-[node name="Menu" parent="." node_paths=PackedStringArray("camera_node", "buttonsList") instance=ExtResource("7_85g3d")]
+[node name="Menu" parent="." node_paths=PackedStringArray("followedNode", "buttonsList") instance=ExtResource("7_85g3d")]
 position = Vector2(384, -324)
 scale = Vector2(0.1, 0.1)
-camera_node = NodePath("../Camera")
+followedNode = NodePath("../Camera")
 buttonsList = [NodePath("../Button"), NodePath("../Button2"), NodePath("../Button3"), NodePath("../Button4")]
 
 [node name="Button" type="Button" parent="."]

@@ -7,41 +7,6 @@ extends Area2D
 
 var house = preload("res://scenes/house.tscn")
 var has_collision = false
-	
-# GPT "Obter size Node2D"
-func get_total_bounds() -> Rect2:
-	var rect := Rect2()
-	var first := true
-	
-	for node in get_children():
-		if node is Node2D and node.visible:
-			for child in node.get_children():
-				if child is TileMapLayer:
-					var used_rect = child.get_used_rect() # em coords de tiles
-					var cell_size = child.tile_set.tile_size
-					
-					# tamanho em pixels do rect, antes do scale
-					# converte para Vector2 para evitar o erro
-					var base_pos  = Vector2(used_rect.position) * Vector2(cell_size)
-					var base_size = Vector2(used_rect.size) * Vector2(cell_size)
-
-					# aplica o scale do TileMap
-					var scaled_pos  = base_pos * child.scale
-					var scaled_size = base_size * child.scale
-					
-					var child_rect = Rect2(scaled_pos, scaled_size)
-					
-					# transforma para coords globais, caso o TileMap esteja movido
-					child_rect.position = child.to_global(child_rect.position)
-					
-					if first:
-						rect = child_rect
-						first = false
-					else:
-						rect = rect.merge(child_rect)
-	
-	return rect
-
 
 func round_to_nearest_multiple(x: float, n: float) -> float:
 	return int(roundf(x / n )) * n
@@ -70,7 +35,7 @@ func update_visuals() -> void:
 
 func _physics_process(delta: float) -> void:
 	const tile_size := 16*2.5;
-	var total_bounds_size = get_total_bounds().size
+	var total_bounds_size = get_total_bounds.run(self).size
 	var mouse_position = get_global_mouse_position()
 	
 	self.position.x = round_to_nearest_multiple( mouse_position.x \

@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://dwgsjmd7amlxk"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Camera" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
