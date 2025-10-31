@@ -12,12 +12,24 @@ func move():
 	var is_up_pressed = Input.is_action_pressed("ui_up")
 	var is_down_pressed = Input.is_action_pressed("ui_down")
 	
+	var camera_size = get_camera_view_size.run(self)
+	
+	var mouse_pos = get_viewport().get_mouse_position()
+	if mouse_pos.x < 1.0:
+		direction.x = -1
+	elif mouse_pos.x > (camera_size.x - 2):
+		direction.x = 1
+	if mouse_pos.y < 1.0:
+		direction.y = -1
+	if mouse_pos.y > (camera_size.y - 2):
+		direction.y = 1
+	
 	# setup the actual movement
 	var velocity = (direction * speed)
 	
+	# delimit movement on borders
 	var world_rect = get_total_bounds.run(get_tree().root.get_node("World"), false)
 	var allowed_rect = world_rect
-	var camera_size = get_camera_view_size.run(self)
 	var menu_size = get_total_bounds.run(get_tree().root.get_node("World/Menu"), false).size
 	allowed_rect.position += camera_size / 2
 	allowed_rect.size -= camera_size
