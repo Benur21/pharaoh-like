@@ -15,13 +15,13 @@ func move():
 	var camera_size = get_camera_view_size.run(self)
 	
 	var mouse_pos = get_viewport().get_mouse_position()
-	if mouse_pos.x < 1.0:
+	if mouse_pos.x < 5.0:
 		direction.x = -1
-	elif mouse_pos.x > (camera_size.x - 2):
+	elif mouse_pos.x > (camera_size.x - 6.0):
 		direction.x = 1
-	if mouse_pos.y < 1.0:
+	if mouse_pos.y < 5.0:
 		direction.y = -1
-	if mouse_pos.y > (camera_size.y - 2):
+	elif mouse_pos.y > (camera_size.y - 6.0):
 		direction.y = 1
 	
 	# setup the actual movement
