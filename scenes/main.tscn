@@ -569,8 +569,6 @@ pattern_0 = SubResource("TileMapPattern_tefeu")
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_o6xl0")
-metadata/_edit_vertical_guides_ = [-1040.0, -1460.0, 2200.0, -2600.0, 1260.0]
-metadata/_edit_horizontal_guides_ = [-520.0, 1160.0, -1300.0, 780.0]
 
 [node name="Grass" type="TileMapLayer" parent="."]
 texture_filter = 1
