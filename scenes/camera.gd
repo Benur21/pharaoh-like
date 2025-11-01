@@ -4,7 +4,7 @@ extends Node2D
 var speed = 25
 
 func move():
-	# setup direction of movement
+	# setup direction of keyboard movement
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	var is_right_pressed = Input.is_action_pressed("ui_right")
@@ -14,14 +14,15 @@ func move():
 	
 	var camera_size = get_camera_view_size.run(self)
 	
+	# move on borders
 	var mouse_pos = get_viewport().get_mouse_position()
-	if mouse_pos.x < 5.0:
+	if mouse_pos.x < 15.0:
 		direction.x = -1
-	elif mouse_pos.x > (camera_size.x - 6.0):
+	elif mouse_pos.x > (camera_size.x - 16.0):
 		direction.x = 1
-	if mouse_pos.y < 5.0:
+	if mouse_pos.y < 15.0:
 		direction.y = -1
-	elif mouse_pos.y > (camera_size.y - 6.0):
+	elif mouse_pos.y > (camera_size.y - 16.0):
 		direction.y = 1
 	
 	# setup the actual movement
@@ -38,6 +39,15 @@ func move():
 		position.x += velocity.x # Move camera
 	if (allowed_rect.has_point(position + Vector2(0, velocity.y))):
 		position.y += velocity.y # Move camera
+	
+	if position.x < allowed_rect.position.x:
+		position.x = allowed_rect.position.x
+	if position.y < allowed_rect.position.y:
+		position.y = allowed_rect.position.y
+	if position.x > allowed_rect.position.x + allowed_rect.size.x:
+		position.x = allowed_rect.position.x + allowed_rect.size.x
+	if position.y > allowed_rect.position.y + allowed_rect.size.y:
+		position.y = allowed_rect.position.y + allowed_rect.size.y
 	
 	
 func _physics_process(_delta):
