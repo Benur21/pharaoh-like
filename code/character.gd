@@ -5,27 +5,19 @@ extends CharacterBody2D
 @onready var wood_count = $Wood_count
 @export var contains := {"wood": 0, "gold": 0}
 
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+
 var facing_dir = "down" # default
 
 # speed in pixels/sec
 var speed = 250
 
+func makepath() -> void:
+	nav_agent.target_position = Vector2(randi_range(-100, 100), randi_range(-100, 100))
+
 func move():
 	# setup direction of movement
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	var is_right_pressed = Input.is_action_pressed("ui_right")
-	var is_left_pressed = Input.is_action_pressed("ui_left")
-	var is_up_pressed = Input.is_action_pressed("ui_up")
-	var is_down_pressed = Input.is_action_pressed("ui_down")
-	
-	# stop diagonal movement by listening dwadwfor input then setting axis to zero
-	if is_right_pressed || is_left_pressed:
-		direction.y = 0
-	elif is_up_pressed || is_down_pressed:
-		direction.x = 0
-	else:
-		direction = Vector2.ZERO
+	var direction = to_local(nav_agent.get_next_path_position())
 	
 	if direction != Vector2.ZERO:
 		# update facing_dir

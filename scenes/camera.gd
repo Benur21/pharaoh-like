@@ -5,12 +5,7 @@ var speed = 25
 
 func move():
 	# setup direction of keyboard movement
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	var is_right_pressed = Input.is_action_pressed("ui_right")
-	var is_left_pressed = Input.is_action_pressed("ui_left")
-	var is_up_pressed = Input.is_action_pressed("ui_up")
-	var is_down_pressed = Input.is_action_pressed("ui_down")
+	var direction = Vector2(0,0)# Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	var camera_size = get_camera_view_size.run(self)
 	
@@ -40,6 +35,7 @@ func move():
 	if (allowed_rect.has_point(position + Vector2(0, velocity.y))):
 		position.y += velocity.y # Move camera
 	
+	# put camera back inside the map
 	if position.x < allowed_rect.position.x:
 		position.x = allowed_rect.position.x
 	if position.y < allowed_rect.position.y:

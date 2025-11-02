@@ -459,3 +459,5 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 2
+debug_enabled = true
