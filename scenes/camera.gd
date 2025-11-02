@@ -5,7 +5,7 @@ var speed = 25
 
 func move():
 	# setup direction of keyboard movement
-	var direction = Vector2(0,0)# Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	var camera_size = get_camera_view_size.run(self)
 	
