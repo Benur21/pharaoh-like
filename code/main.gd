@@ -26,5 +26,5 @@ func _on_timer_timeout() -> void:
 		citizen.makepath(1000, 180)
 	
 	i += 1
-	if i == 10:
+	if i == 16:
 		timer.stop()
