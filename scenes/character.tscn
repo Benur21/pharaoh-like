@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cmfo7cr3jqwhc" path="res://assets/wood_log.png" id="4_my7n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
-size = Vector2(11, 33)
+size = Vector2(9.8, 7.4)
 
 [sub_resource type="Animation" id="Animation_rkhd4"]
 length = 0.001
@@ -417,7 +417,8 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_lrhn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(0.0999999, 13.3)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rkhd4")
 
 [node name="CharacterIdle" type="Sprite2D" parent="."]
@@ -459,3 +460,4 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1

@@ -12,13 +12,17 @@ var facing_dir = "down" # default
 # speed in pixels/sec
 var speed = 250
 
-func makepath() -> void:
-	nav_agent.target_position = Vector2(randi_range(-100, 100), randi_range(-100, 100))
+func makepath(target_x: int, target_y: int) -> void:
+	nav_agent.target_position = Vector2(target_x, target_y)
 
 func move():
+	if nav_agent.is_navigation_finished():
+		# Chegou ao destino
+		return
+	
 	# setup direction of movement
 	var direction = to_local(nav_agent.get_next_path_position())
-	
+		
 	if direction != Vector2.ZERO:
 		# update facing_dir
 		if abs(direction.x) > abs(direction.y):
